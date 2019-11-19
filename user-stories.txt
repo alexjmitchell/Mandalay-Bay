@@ -1,0 +1,72 @@
+Mvp 
+
+Login
+Registration
+channels
+profiles
+groups
+direct
+chat window
+
+future features
+
+searching
+notifications
+invite
+responseive
+timestamp
+tagging
+pinning
+themes
+status
+emoji's/gifs
+message count
+
+icebox
+
+
+
+
+
+
+
+
+MVP USER STORIES
+
+-- Login/Registration --
+
+As a user I want to be able to insert a username and password to log in to the application
+
+As a user I want to be able to create a username and password to log in to the application
+
+As a user I want to be able to insert my email in the Registration process so if i forget my password i have a place for them to be sent
+
+As a user I want to be able to edit my password or have a forget my password if I need a new password
+
+-- Channels --
+
+As a user I would like to be able to view my channels so I may select which channel I want to be in.
+
+As a user I would like to be able to create or remove channels so I have only the channels I want.
+
+As a user I would like to be able to rename the channel incase I mispell or create a wrong title.
+
+As a user I would like to be able to reorder the channels to specify the most important.
+
+As a user I want to be able to view who is in the channel.
+
+-- Profiles --
+
+As a  user I want to be able to edit my info, if anything changes
+
+As a use I would like to be able to upload a profile picture
+
+-- Group Chat/ Direct Chat --
+
+As a User I want to be able to post a message to a chat window, so it can be displayed on the chat window.
+
+As a user I want to be able to specify where to post my messages, depending on where I want my message to go
+
+-- Chat Window --
+
+As a user I want to be able to display my posted messages, so others can see my post.
