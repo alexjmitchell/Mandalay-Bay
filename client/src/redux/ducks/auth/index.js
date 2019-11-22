@@ -62,6 +62,18 @@ const logout = () => {
   }
 }
 
+const register = (username, password) => {
+  return new Promise((resolve, reject) => {
+    axios.post("/register", { username, password }).then(response => {
+      axios.defaults.headers.common = {
+        Authorization: `Bearer ${response.data.token}`
+      }
+
+      resolve()
+    })
+  })
+}
+
 export const useAuth = () => {
   const username = useSelector(appState => appState.authState.username)
   const isAuthenticated = useSelector(
@@ -76,5 +88,8 @@ export const useAuth = () => {
     dispatch(logout())
   }
 
-  return { username, signin, signout, isAuthenticated }
+  const reg = (username, password, dispatch) =>
+    dispatch(register(username, password))
+
+  return { username, signin, signout, isAuthenticated, reg }
 }

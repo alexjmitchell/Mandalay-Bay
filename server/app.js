@@ -6,8 +6,6 @@ const jwt = require("express-jwt")
 const config = require("config")
 const app = express()
 const server = require("http").Server(app)
-// const http = require("http")
-// const server = http.createServer(app)
 const io = require("socket.io")(server)
 const chat = require("./chat")(io)
 
