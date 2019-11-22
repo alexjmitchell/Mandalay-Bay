@@ -32,8 +32,8 @@ export default (state = initialState, action) => {
   }
 }
 
-const login = (username, password) => {
-  return dispatch => {
+const login = (username, password, dispatch) => {
+  return new Promise((resolve, reject) => {
     axios
       .post("/login", { username, password })
       .then(response => {
@@ -44,13 +44,15 @@ const login = (username, password) => {
           type: LOGIN_SUCCESS,
           payload: username
         })
+        resolve()
       })
       .catch(errors => {
         dispatch({
           type: LOGIN_FAILURE
         })
+        reject()
       })
-  }
+  })
 }
 
 const logout = () => {
@@ -62,14 +64,17 @@ const logout = () => {
 
 export const useAuth = () => {
   const username = useSelector(appState => appState.authState.username)
+  const isAuthenticated = useSelector(
+    appState => appState.authState.isAuthenticated
+  )
   const dispatch = useDispatch()
   const signin = (username, password) => {
     dispatch({ type: LOGIN_PENDING })
-    dispatch(login(username, password))
+    return login(username, password, dispatch)
   }
   const signout = () => {
     dispatch(logout())
   }
 
-  return { username, signin, signout }
+  return { username, signin, signout, isAuthenticated }
 }

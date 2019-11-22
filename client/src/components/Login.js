@@ -9,7 +9,9 @@ const Login = props => {
   const handleSubmit = event => {
     event.preventDefault()
 
-    signin(username, password)
+    signin(username, password).then(response => {
+      props.history.push("/")
+    })
   }
 
   return (

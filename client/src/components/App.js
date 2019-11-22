@@ -1,11 +1,15 @@
 import React from "react"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import CheckLogin from "./CheckLogin"
 import Login from "./Login"
 
 const App = props => {
   return (
     <Router>
-      <Route exact path="/login" component={Login} />
+      <Switch>
+        <Route exact path="/login" component={Login} />
+        <Route path="*" component={CheckLogin} />
+      </Switch>
     </Router>
   )
 }
