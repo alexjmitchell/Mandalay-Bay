@@ -1,5 +1,4 @@
 module.exports = io => {
- try {
   io.on("connection", socket => {
     console.log("Connection received: ", socket.id)
 
@@ -7,7 +6,4 @@ module.exports = io => {
       io.emit("send message", message)
     })
   })
- } catch {
-   console.log("error message", error)
- }
 }
