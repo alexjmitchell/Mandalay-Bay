@@ -13,7 +13,6 @@ const Login = props => {
 
     signin(username, password).then(response => {
       props.history.push("/")
-      console.log(password)
     })
   }
 

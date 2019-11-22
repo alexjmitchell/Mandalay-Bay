@@ -1,6 +1,7 @@
 import React from "react"
 import { useAuth } from "../hooks"
 import { Link } from "react-router-dom"
+import "../redux/ducks/chat"
 
 const Dashboard = props => {
   const { username, signout } = useAuth()

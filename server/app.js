@@ -5,6 +5,11 @@ const protectedRouter = require("./routes/protected")
 const jwt = require("express-jwt")
 const config = require("config")
 const app = express()
+const server = require("http").Server(app)
+// const http = require("http")
+// const server = http.createServer(app)
+const io = require("socket.io")(server)
+const chat = require("./chat")(io)
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -31,6 +36,6 @@ app.use(function(err, req, res, next) {
   })
 })
 
-app.listen(8080, () => {
+server.listen(8080, () => {
   console.log("Listening on port 8080")
 })
