@@ -71,3 +71,15 @@ i {
  height: 100vh;
  background: #69626D;
 }
+
+.buttons {
+  display: flex;
+}
+
+.buttons button {
+  margin-right: 20px;
+}
+
+#register {
+  width: 100px;
+}

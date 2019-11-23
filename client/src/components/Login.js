@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useAuth } from "../hooks"
 import "../styles/Login.css"
 import Icon from "../lib/Icon"
+import { Link } from "react-router-dom"
 
 const Login = props => {
   const [username, setUsername] = useState("")
@@ -37,9 +38,14 @@ const Login = props => {
             value={password}
             onChange={event => setPassword(event.target.value)}
           />
-          <button type="submit" className="submit-button">
-            Login
-          </button>
+          <div className="buttons">
+            <button type="submit" className="submit-button">
+              Login
+            </button>
+            <Link to="/register">
+              <button className="submit-button" id="register">Register</button>
+            </Link>
+          </div>
         </form>
       </div>
     </div>

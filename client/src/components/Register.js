@@ -22,7 +22,6 @@ const Register = props => {
             placeholder="username"
             type="text"
             name="username"
-            id="username"
             value={username}
             onChange={event => setUsername(event.target.value)}
           />
@@ -30,11 +29,10 @@ const Register = props => {
             placeholder="password"
             type="password"
             name="password"
-            id="password"
             value={password}
             onChange={event => setPassword(event.target.value)}
           />
-          <button type="submit" className="submit-button">
+          <button type="submit" className="submit-button-register">
             register
           </button>
         </form>

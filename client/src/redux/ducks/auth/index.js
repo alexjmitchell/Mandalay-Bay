@@ -62,15 +62,18 @@ const logout = () => {
   }
 }
 
-const register = (username, password) => {
+const register = (username, password, dispatch) => {
   return new Promise((resolve, reject) => {
-    axios.post("/register", { username, password }).then(response => {
-      axios.defaults.headers.common = {
-        Authorization: `Bearer ${response.data.token}`
-      }
-
-      resolve()
-    })
+    axios
+      .post("/register", { username, password })
+      .then(response => {
+        login(username, password, dispatch).then(() => {
+          resolve()
+        })
+      })
+      .catch(error => {
+        reject()
+      })
   })
 }
 
@@ -88,8 +91,9 @@ export const useAuth = () => {
     dispatch(logout())
   }
 
-  const reg = (username, password, dispatch) =>
-    dispatch(register(username, password))
+  const reg = (username, password) => {
+    return register(username, password, dispatch)
+  }
 
   return { username, signin, signout, isAuthenticated, reg }
 }
