@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useAuth } from "../hooks"
+import { Link } from "react-router-dom"
 
 const Register = props => {
   const [username, setUsername] = useState("")
@@ -35,6 +36,9 @@ const Register = props => {
           <button type="submit" className="submit-button-register">
             register
           </button>
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
         </form>
       </div>
     </div>

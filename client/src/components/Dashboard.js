@@ -1,15 +1,16 @@
 import React, { useState } from "react"
 import { useAuth, useChat } from "../hooks"
 import "../redux/ducks/chat"
+import "../styles/Dashboard.css"
 
 const Dashboard = props => {
   const { username, signout } = useAuth()
   const [message, setMessage] = useState("")
-  const { messages, added } = useChat()
+  const { messages, added, users } = useChat()
 
   const handleSubmit = event => {
     event.preventDefault()
-    added(message)
+    added({ message, username })
     setMessage("")
   }
 
@@ -26,9 +27,17 @@ const Dashboard = props => {
         />
         <button type="submit">Submit</button>
       </form>
-      {messages.map((mess, i) => (
-        <p key={`message-${i}`}>{mess}</p>
-      ))}
+      <div id="chat">
+        <div id="users">
+          {users.map((user, i) => (
+            <p key={`user-${i}`}>{user.username}</p>
+          ))}
+        </div>
+        <div id="messages"></div>
+        {messages.map((mess, i) => (
+          <p key={`message-${i}`}>{mess.message}</p>
+        ))}
+      </div>
     </div>
   )
 }
