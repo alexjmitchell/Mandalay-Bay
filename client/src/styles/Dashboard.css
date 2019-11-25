@@ -5,3 +5,8 @@
 #users {
   border-right: 2px solid black;
 }
+
+#messages {
+  display: flex;
+  flex-direction: column;
+}

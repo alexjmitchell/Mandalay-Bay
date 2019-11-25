@@ -42,7 +42,7 @@ const Login = props => {
             <button type="submit" className="submit-button">
               Login
             </button>
-            <Link to="/register">
+            <Link to="/register" className="link">
               <button className="submit-button" id="register">Register</button>
             </Link>
           </div>

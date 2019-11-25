@@ -33,10 +33,13 @@ const Dashboard = props => {
             <p key={`user-${i}`}>{user.username}</p>
           ))}
         </div>
-        <div id="messages"></div>
-        {messages.map((mess, i) => (
-          <p key={`message-${i}`}>{mess.message}</p>
-        ))}
+        <div id="messages">
+          {messages.map((mess, i) => (
+            <p key={`message-${i}`}>
+              {mess.username} : {mess.message}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   )
